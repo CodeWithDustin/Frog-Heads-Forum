@@ -26,7 +26,7 @@ def logout_view(request):
 # user can see all forum categories, click on one to see all posts in that category
 # moderator could create/update/delete categories
 def home_view(request):
-    pass
+    return render(request, "home.html")
 
 
 # user can see account details, and post history
