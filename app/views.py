@@ -1,6 +1,8 @@
+### library imports ###
 from django.shortcuts import render
 
-# Create your views here.
+
+### imports from other files in our project ###
 
 
 ### Regular User Views ###
