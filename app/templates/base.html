@@ -17,12 +17,12 @@
             {% comment %}
             <li><a href="{% url 'forum' %}">Forum</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
-            {% if user.is_authenticated %}
+            {% endcomment %} {% comment %} {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
+            {% else %} {% endcomment %}
             <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            {% endif %} {% endcomment %}
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% comment %} {% endif %} {% endcomment %}
           </ul>
         </nav>
       </div>

@@ -38,7 +38,7 @@ def login_view(request):
         "form": form,
     }
 
-    return render(request, "template name", context)
+    return render(request, "login.html", context)
 
 
 # register user with Django's default user model
@@ -57,7 +57,7 @@ def register_view(request):
         "form": form,
     }
 
-    return render(request, "template name", context)
+    return render(request, "registration.html", context)
 
 
 # user logout
