@@ -102,18 +102,23 @@ def create_post_view(request):
 ### Moderator Only Views ###
 
 
+# moderator category control panel
+def board_control_view(request):
+    pass
+
+
 # moderator can create a new forum category
-def create_category_view(request):
+def create_board_view(request):
     pass
 
 
 # moderator can delete a forum category
-def delete_category_view(request):
+def delete_board_view(request):
     pass
 
 
 # moderator can update a forum category
-def update_category_view(request):
+def update_board_view(request):
     pass
 
 
