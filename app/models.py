@@ -25,7 +25,7 @@ class MessageBoard(models.Model):
 class Post(models.Model):
   user = models.ForeignKey(User, on_delete=models.Case)
   board = models.ForeignKey(MessageBoard, on_delete=models.CASCADE)
-  subject = models.CharField(max_length=100)
+  subject = models.CharField(max_length=100, blank=True, null=True)
   post = models.CharField(max_length=300)
   date_posted = models.DateField(default=datetime.now)
 
