@@ -26,11 +26,19 @@ class MessageBoard(models.Model):
 
 
 class Post(models.Model):
+<<<<<<< HEAD
     user = models.ForeignKey(User, on_delete=models.Case)
     board = models.ForeignKey(MessageBoard, on_delete=models.CASCADE)
     subject = models.CharField(max_length=100)
     post = models.CharField(max_length=300)
     date_posted = models.DateField(default=datetime.now)
+=======
+  user = models.ForeignKey(User, on_delete=models.Case)
+  board = models.ForeignKey(MessageBoard, on_delete=models.CASCADE)
+  subject = models.CharField(max_length=100, blank=True, null=True)
+  post = models.CharField(max_length=300)
+  date_posted = models.DateField(default=datetime.now)
+>>>>>>> 3b0e4934daecd4244c3aeeabbbf7a32fe18bc35a
 
     def __str__(self):
         return self.name
