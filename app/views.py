@@ -90,12 +90,12 @@ def edit_profile_view(request):
 # user can see all posts in a selected forum category, make a post in that category, and upvote/downvote posts
 # login optional, but required to make a post or upvote/downvote
 # moderator can delete posts
-def forum_view(request):
+def forum_view(request, board_id: int):
     pass
 
 
 # user can make a post in a selected forum category, login required
-def create_post_view(request):
+def create_post_view(request, board_id: int):
     pass
 
 
@@ -113,15 +113,15 @@ def create_board_view(request):
 
 
 # moderator can delete a forum category
-def delete_board_view(request):
+def delete_board_view(request, board_id: int):
     pass
 
 
 # moderator can update a forum category
-def update_board_view(request):
+def update_board_view(request, board_id: int):
     pass
 
 
 # moderator can delete a post
-def delete_post_view(request):
+def delete_post_view(request, post_id: int):
     pass
