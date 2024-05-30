@@ -16,13 +16,13 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             {% comment %}
             <li><a href="{% url 'forum' %}">Forum</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-            {% endcomment %} {% comment %} {% if user.is_authenticated %}
+            {% endcomment %} {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %} {% endcomment %}
+            {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'register' %}">Register</a></li>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
           </ul>
         </nav>
       </div>

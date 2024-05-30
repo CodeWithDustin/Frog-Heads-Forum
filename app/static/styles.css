@@ -166,3 +166,45 @@ a.button-link:hover {
 .thread a:hover {
   text-decoration: underline;
 }
+
+/* Profile Page Styles */
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff; /* White */
+  padding: 20px;
+  border: 1px solid #bebebe; /* Gray */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #bebebe; /* Gray */
+  margin-right: 20px;
+}
+
+.profile-header h2 {
+  color: #3e3e3e; /* Dark Brown */
+  margin: 0;
+}
+
+.profile-details {
+  color: #3e3e3e; /* Dark Brown */
+}
+
+.profile-details p {
+  margin: 10px 0;
+}
+
+.profile-details strong {
+  color: #a3752b; /* Golden Brown */
+}
