@@ -69,7 +69,17 @@ def logout_view(request):
 # user can see all forum categories, click on one to see all posts in that category
 # moderator could create/update/delete categories
 def home_view(request):
-    return render(request, "home.html")
+
+    all_boards = MessageBoard.objects.all()
+
+
+    
+
+    context = {
+        'all_boards' : all_boards,
+    }
+
+    return render(request, "home.html", context)
 
 
 # user can create profile, login required
@@ -79,7 +89,18 @@ def create_profile_view(request):
 
 # user can see account details, and post history
 def profile_view(request):
-    pass
+    
+    user = request.user
+
+
+    # we could do something like ↓ to get the profile directly
+    user_profile = Profile.objects.get(username = request.user)
+
+    context = {
+        'user' : user,
+    }
+
+    return render(request, 'profile.html', context)
 
 
 # user can edit account details (username, pfp, etc.)
@@ -91,7 +112,17 @@ def edit_profile_view(request):
 # login optional, but required to make a post or upvote/downvote
 # moderator can delete posts
 def forum_view(request, board_id: int):
-    pass
+    
+    board = MessageBoard.objects.get(id=board_id)
+
+    posts = Post.objects.filter(board=board)
+
+    context = {
+        'board' : board,
+        'posts' : posts,
+    }
+
+    return render(request, 'need a file', context)
 
 
 # user can make a post in a selected forum category, login required
@@ -104,7 +135,10 @@ def create_post_view(request, board_id: int):
 
 # moderator category control panel
 def board_control_view(request):
-    pass
+
+
+    
+    return render(request, 'need html file')
 
 
 # moderator can create a new forum category
@@ -114,14 +148,24 @@ def create_board_view(request):
 
 # moderator can delete a forum category
 def delete_board_view(request, board_id: int):
-    pass
+    
+    board = MessageBoard.objects.get(id=board_id)
+    board.delete()
+
+    return redirect('board_control')
 
 
-# moderator can update a forum category
+# moderator can update a forum category, such as rename / change description
 def update_board_view(request, board_id: int):
+
+    board = MessageBoard.objects.get(id=board_id)
+
+    # gonna need a form here 
+
     pass
 
 
 # moderator can delete a post
 def delete_post_view(request, post_id: int):
-    pass
+    
+    post = Post.objects.get(id=post_id)
