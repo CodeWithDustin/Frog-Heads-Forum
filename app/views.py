@@ -1,5 +1,5 @@
 ### library imports ###
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
@@ -51,6 +51,12 @@ def register_view(request):
             user = form.save()
             ## add user to group (need to create group in admin panel)##
             user.save()
+
+            #make a profile for the user
+            profile = Profile.objects.create(username=user)
+            profile.save()
+
+
             return redirect("login")
 
     context = {
@@ -83,22 +89,27 @@ def home_view(request):
 
 
 # user can create profile, login required
-def create_profile_view(request):
+# def create_profile_view(request):
 
-    form = ProfileForm()
 
-    if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'profile.html')
+#     # profile = get_object_or_404(Profile, pk=)
+
+#     # if n
+
+#     # form = ProfileForm()
+
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return render(request, 'profile.html')
 
     
-    context = {
-        'form' : form,
-    }
+#     context = {
+#         'form' : form,
+#     }
 
-    return render(request, 'edit_profile.html', context)
+#     return render(request, 'edit_profile.html', context)
 
 
 # user can see account details, and post history
@@ -119,7 +130,23 @@ def profile_view(request):
 
 # user can edit account details (username, pfp, etc.)
 def edit_profile_view(request, profile_id: int):
-    pass
+    
+    profile = Profile.objects.get(id=profile_id)
+
+
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return render(request, 'profile.html')
+
+    context = {
+        'form' : form,
+    }
+
+    return render(request, 'edit_profile.html', context)
 
 
 # user can see all posts in a selected forum category, make a post in that category, and upvote/downvote posts
@@ -141,7 +168,23 @@ def forum_view(request, board_id: int):
 
 # user can make a post in a selected forum category, login required
 def create_post_view(request, board_id: int):
-    pass
+    
+
+    board = MessageBoard.objects.get(id=board_id)
+
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('forum', board_id=board_id)
+        
+    context = {
+        'form' : form,
+    }
+
+    return render(request, 'create_post.html', context)
 
 
 ### Moderator Only Views ###
@@ -150,17 +193,29 @@ def create_post_view(request, board_id: int):
 # moderator category control panel
 def board_control_view(request):
 
-
+    context = {
+        'all_boards' : MessageBoard.objects.all(),
+    }
     
-    return render(request, 'need html file')
+    return render(request, 'moderator_panel.html')
 
 
 # moderator can create a new forum category
 def create_board_view(request):
 
+    form = BoardForm()
 
+    if request.method == 'POST':
+        form = BoardForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('board_control')
+        
+    context = {
+        'form' : form,
+    }
 
-    pass
+    return render(request, 'create_board.html', context)
 
 
 # moderator can delete a forum category
