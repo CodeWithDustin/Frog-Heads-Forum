@@ -26,7 +26,7 @@
 }
 
 .header1 {
-  padding-left: 150px;
+  padding-left: 100px;
   padding-right: 150px;
   background: #979696;
   height: 25px;
@@ -36,14 +36,14 @@
   flex-direction: row;
 }
 .header2 {
-  padding-left: 150px;
+  padding-left: 100px;
   padding-right: 150px;
   background: white;
   height: 100px;
   text-align: left;
 }
 .header3 {
-  padding-left: 150px;
+  padding-left: 100px;
   padding-right: 150px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -53,7 +53,7 @@
 }
 
 .aside1 {
-  padding-left: 150px;
+  padding-left: 100px;
   padding-top: 50px;
   padding-right: 50px;
   background: white;
@@ -64,7 +64,7 @@
 }
 
 .aside2 {
-  padding-right: 150px;
+  padding-right: 100px;
   padding-left: 50px;
   padding-top: 50px;
   background: white;
@@ -81,6 +81,7 @@
   background: #a9a8a8;
   overflow-y: scroll;
   font-size: 18px;
+  text-align: left;
 }
 
 .footer {
