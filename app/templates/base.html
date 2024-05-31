@@ -1,38 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Frog Heads Forum{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1><a href="{% url 'home' %}">Frog Heads Forum</a></h1>
-        <nav>
-          <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            {% comment %}
-            <li><a href="{% url 'forum' %}">Forum</a></li>
-            {% endcomment %} {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
-            {% endif %}
-          </ul>
-        </nav>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frog Head Forums</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="wrapper">
+
+
+    <header class="header1">
+      <ul class="nav1">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+      </ul>
     </header>
-    <main>
-      <div class="container">
-        {% block content %}
-        <!-- Main content here -->
-        {% endblock %}
+
+    <header class="header2">
+      <ul class="nav2">
+        <li><img src="{% static '\images\frogheadbanner.png'%}" alt="FrogHeadBanner"></li>
+      </ul>
+    </header>
+    
+
+    <header class="header3">
+      <input type="search" name="search" id="search" placeholder="Search Topic">
+    </header>
+    
+
+    <aside class="aside1">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!</p>
+    </aside>
+
+    <article class="main">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo a magni praesentium nemo odio? Reprehenderit consequatur recusandae qui laboriosam eum consequuntur eligendi commodi, molestiae ad eaque quam aliquid perspiciatis dolore.</p>
+    </article>
+
+    </header>
+    <aside class="aside2">
+      <div class="ad1">Ad 1
       </div>
-    </main>
-  </body>
+      <div class="ad2">Ad 2</div>
+      <div class="ad3">Ad 3</div>
+    </aside>
+
+  </div> 
+
+    <footer class="footer">
+      <h1>Footer</h1>
+    </footer>
+
+</body>
 </html>
