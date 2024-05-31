@@ -13,9 +13,16 @@
 
     <header class="header1">
       <ul class="nav1">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% comment %}
+        <li><a href="{% url 'forum' %}">Forum</a></li>
+        {% endcomment %} {% if user.is_authenticated %}
+        <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
       </ul>
     </header>
 
