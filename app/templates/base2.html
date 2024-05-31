@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Frog Heads Forum{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1><a href="{% url 'home' %}">Frog Heads Forum</a></h1>
+        <nav>
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% comment %}
+            <li><a href="{% url 'forum' %}">Forum</a></li>
+            {% endcomment %} {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        {% block content %}
+        <!-- Main content here -->
+        {% endblock %}
+      </div>
+    </main>
+  </body>
+</html>
