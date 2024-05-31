@@ -1,6 +1,23 @@
 from django import forms
 
+from app.models import Profile, MessageBoard
+
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=150)
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class ProfileForm(forms.ModelForm):
+    
+    class Meta:
+        model = Profile
+        fields = ['profile_img', 'bio', 'location']
+
+
+class BoardForm(forms.ModelForm):
+    
+    class Meta:
+        model = MessageBoard
+        fields = ['title', 'description']

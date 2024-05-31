@@ -1,8 +1,18 @@
 {% extends 'base.html' %} {% block title %}Home - Frog Heads Forum{% endblock %}
-{%block content%}
+{% block content %}
 <h2>Welcome to the Frog Heads!</h2>
 <p>
   This is the home page. Feel free to explore the forum and join the
   discussions!
 </p>
-{%endblock%}
+
+{% for board in all_boards %}
+  <div class="board_container">
+    <h3>{{ board.name }}</h3>
+    <p>{{ board.description }}</p>
+    <a href="{% url 'forum' board.id %}">View Board!</a>
+  </div>
+{% endfor %}
+
+
+{% endblock %}

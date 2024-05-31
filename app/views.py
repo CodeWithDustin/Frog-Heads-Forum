@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 ### imports from other files in our project ###
 from app.models import Profile, MessageBoard, Post
-from app.forms import LoginForm
+from app.forms import LoginForm, ProfileForm, BoardForm
 
 
 ### Regular User Views ###
@@ -84,7 +84,21 @@ def home_view(request):
 
 # user can create profile, login required
 def create_profile_view(request):
-    pass
+
+    form = ProfileForm()
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'profile.html')
+
+    
+    context = {
+        'form' : form,
+    }
+
+    return render(request, 'edit_profile.html', context)
 
 
 # user can see account details, and post history
@@ -94,7 +108,7 @@ def profile_view(request):
 
 
     # we could do something like ↓ to get the profile directly
-    user_profile = Profile.objects.get(username = request.user)
+    # user_profile = Profile.objects.get(username = request.user)
 
     context = {
         'user' : user,
@@ -104,7 +118,7 @@ def profile_view(request):
 
 
 # user can edit account details (username, pfp, etc.)
-def edit_profile_view(request):
+def edit_profile_view(request, profile_id: int):
     pass
 
 
@@ -143,6 +157,9 @@ def board_control_view(request):
 
 # moderator can create a new forum category
 def create_board_view(request):
+
+
+
     pass
 
 
@@ -169,3 +186,5 @@ def update_board_view(request, board_id: int):
 def delete_post_view(request, post_id: int):
     
     post = Post.objects.get(id=post_id)
+
+    return render(request, 'moderator_panel.html')

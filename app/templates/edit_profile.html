@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Edit Profile - Frog Heads Forum
+{% endblock %}
+
+{% block content %}
+
+<form action="">
+  {% csrf_token %}
+  {{ form.as_p}}
+</form>
+
+{% endblock %}
