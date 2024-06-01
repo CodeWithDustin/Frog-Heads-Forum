@@ -117,6 +117,7 @@ def home_view(request):
 def profile_view(request):
     
     user = request.user
+    profile = Profile.objects.get(username=user)
 
 
     # we could do something like ↓ to get the profile directly
@@ -124,6 +125,7 @@ def profile_view(request):
 
     context = {
         'user' : user,
+        'profile' : profile,
     }
 
     return render(request, 'profile.html', context)
@@ -133,6 +135,7 @@ def profile_view(request):
 def edit_profile_view(request, profile_id: int):
     
     profile = Profile.objects.get(id=profile_id)
+    user = request.user
 
 
     form = ProfileForm(instance=profile)
@@ -145,6 +148,7 @@ def edit_profile_view(request, profile_id: int):
 
     context = {
         'form' : form,
+        'user' : user,
     }
 
     return render(request, 'edit_profile.html', context)

@@ -11,7 +11,7 @@ class Profile(models.Model):
   location = models.CharField(max_length=50, blank=True)
 
   def __str__(self):
-    return self.username
+    return f"{self.username.username}'s Profile"
   
 class MessageBoard(models.Model):
   title = models.CharField(max_length=100)
