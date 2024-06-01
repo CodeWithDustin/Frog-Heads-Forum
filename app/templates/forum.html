@@ -12,7 +12,7 @@
         <img src="{{ post.user.profile.profile_img.url }}" alt="{{ post.user.username }}'s profile image" class="post-profile-image">
         <div class="post-user-info">
           <strong>{{ post.user.username }}</strong>
-          <em>{{ post.date_posted }}</em>
+          <h4>{{ post.date_posted }}</h4>
         </div>
         {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
         <div class="post-controls">
