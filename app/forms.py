@@ -1,6 +1,6 @@
 from django import forms
 
-from app.models import Profile, MessageBoard
+from app.models import Profile, MessageBoard, Post
 
 
 
@@ -21,3 +21,9 @@ class BoardForm(forms.ModelForm):
     class Meta:
         model = MessageBoard
         fields = ['title', 'description']
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ['subject', 'post']

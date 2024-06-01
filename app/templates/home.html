@@ -1,18 +1,27 @@
-{% extends 'base.html' %} {% block title %}Home - Frog Heads Forum{% endblock %}
-{% block content %}
-<h2>Welcome to the Frog Heads!</h2>
-<p>
-  This is the home page. Feel free to explore the forum and join the
-  discussions!
-</p>
-
-{% for board in all_boards %}
-  <div class="board_container">
-    <h3>{{ board.name }}</h3>
-    <p>{{ board.description }}</p>
-    <a href="{% url 'forum' board.id %}">View Board!</a>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="home_main">
+  <img src="{% static "\images\frogheadshome2.png" %}" alt="FrogHeadBanner"
+  class="homebanner">
+</div>
+<div class="home">
+  <div class="home_welcome">
+    <h2>Welcome to the Frog Heads Forum!</h2>
+    <p>
+      Welcome to Frog Heads! 🐸🌟 We're delighted to have you here! Frog Heads
+      is a lively and diverse community where people from all walks of life come
+      together to discuss almost anything under the sun. Whether you're here to
+      share your thoughts on the latest news, delve into hobbies and interests,
+      or simply chat with like-minded individuals, there's a place for you in
+      our pond. Feel free to join in on all the various discussions. We have a
+      wide range of topics waiting for your input, and we're always eager to
+      hear fresh perspectives. Here at Frog Heads, we value everyone's opinions
+      and encourage respectful dialogue. Our community thrives on mutual respect
+      and open-mindedness, so please remember to be courteous and considerate to
+      all members. So, ribbit your thoughts and leap into the conversation!
+      Whether you're here to learn something new, share your experiences, or
+      just have some fun, we're excited to hear what you have to say and to grow
+      our community together. Happy posting and welcome to Frog Heads!
+    </p>
   </div>
-{% endfor %}
-
-
-{% endblock %}
+  {% endblock %}
+</div>

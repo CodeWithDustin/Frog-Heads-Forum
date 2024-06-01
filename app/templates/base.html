@@ -12,16 +12,17 @@
 
 
     <header class="header1">
-      <ul class="nav1">
+      <ul class="nav1-left">
         <li><a href="{% url 'home' %}">Home</a></li>
-        {% comment %}
-        <li><a href="{% url 'forum' %}">Forum</a></li>
-        {% endcomment %} {% if user.is_authenticated %}
+      </ul>
+
+      <ul class="nav1-right">
+        {% if user.is_authenticated %}
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
       </ul>
     </header>
@@ -35,11 +36,23 @@
 
     <header class="header3">
       <input type="search" name="search" id="search" placeholder="Search Topic">
+      {% if user.is_authenticated %}
+      <div class="welcome"><p>Welcome, <b>{{user.username}}</b><p></div>
+      {% endif %}
     </header>
     
 
     <aside class="aside1">
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nihil ut rerum quod iste cum consequatur necessitatibus explicabo. Provident dolorem nulla libero molestiae nisi iusto numquam sed consectetur sapiente fuga Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt nihil quibusdam dolorem maiores, fuga velit voluptatibus quod doloribus libero porro, in illum exercitationem sit repellat voluptate minima non incidunt laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit asperiores quam, suscipit id, tenetur reprehenderit rerum aperiam non architecto reiciendis a cumque corrupti, distinctio delectus officia illum incidunt consequuntur dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et perspiciatis nostrum tempora sint magnam voluptates expedita placeat delectus id ipsum, ullam ipsa. Incidunt blanditiis perspiciatis quidem magni, voluptates sequi corporis!</p>
+      <ul>
+        {% for board in all_boards %}
+          <li class="threads">
+            <a href="{% url 'forum' board.id %}">
+              <h4>🐸 {{ board.title }}</h4>
+              <p>{{ board.description }}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </aside>
 
     <article class="main">

@@ -29,7 +29,7 @@ class Post(models.Model):
   post = models.CharField(max_length=300)
   date_posted = models.DateField(default=datetime.now)
 
-def __str__(self):
-  return self.name
+  def __str__(self):
+    return self.name
 
   

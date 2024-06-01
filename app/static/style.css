@@ -6,13 +6,13 @@
   font-family: "Poppins", sans-serif;
   list-style-type: none;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .wrapper {
   display: flex;
   flex-flow: row wrap;
   text-align: center;
+  justify-content: space-evenly;
 }
 
 .wrapper > * {
@@ -33,6 +33,7 @@
   text-align: left;
   line-height: 25px;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
 }
 .header2 {
@@ -41,6 +42,7 @@
   background: white;
   height: 100px;
   text-align: left;
+  border-top: 10px solid #d78f45;
 }
 .header3 {
   padding-left: 100px;
@@ -49,13 +51,18 @@
   padding-bottom: 10px;
   background: #979696;
   height: 25px;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome {
+  word-spacing: 5px;
 }
 
 .aside1 {
-  padding-left: 100px;
+  box-sizing: border-box;
   padding-top: 50px;
-  padding-right: 50px;
+  padding-left: 4%;
   background: white;
   flex: 2;
   font-size: 18px;
@@ -63,9 +70,15 @@
   text-align: left;
 }
 
+.within1 {
+  text-align: right;
+  line-height: 3.2;
+}
+
 .aside2 {
-  padding-right: 100px;
-  padding-left: 50px;
+  box-sizing: border-box;
+  padding-right: 2%;
+  padding-left: 2%;
   padding-top: 50px;
   background: white;
   flex: 2;
@@ -73,7 +86,8 @@
   text-align: center;
 }
 .main {
-  padding-top: 100px;
+  box-sizing: border-box;
+  padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
   flex: 2 40%;
@@ -82,6 +96,51 @@
   overflow-y: scroll;
   font-size: 18px;
   text-align: left;
+}
+
+.home_main {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.home_main img {
+  border-radius: 5%;
+  width: 100%;
+  height: 50%;
+}
+.home {
+  text-transform: uppercase;
+}
+.home h2 {
+  color: #015767;
+}
+.home a {
+  color: #c36531;
+}
+.home_welcome {
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-top: 30px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: #5ab826;
+  border-radius: 10px;
+}
+
+.home_welcome p {
+  text-align: left;
+}
+
+.header1,
+.header3,
+.aside1,
+.aside2 {
+  text-transform: uppercase;
 }
 
 .footer {
@@ -112,44 +171,249 @@
   margin-bottom: 50px;
 }
 
-.nav1 {
+.nav1-left,
+.nav1-right {
   color: white;
-  list-style: none;
   display: flex;
-  gap: 3.2rem;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1.2rem;
 }
 
-.nav1 a {
+.nav1-right li:last-child {
+  text-align: center;
+  width: 150px;
+  background: linear-gradient(45deg, #2ca03f, #20630ba8);
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.nav1-right li:last-child a:hover {
+  color: #04281e;
+}
+
+.nav1-left a,
+.nav1-right a {
   color: white;
   font-weight: bold;
 }
 
-.nav1 a:hover {
+.nav1-left a:hover,
+.nav1-right a:hover {
   color: #5ab826;
 }
 
 .nav2 img {
-  width: 360px;
-  height: 100px;
+  width: 330px;
+  height: auto;
 }
 
 .main a {
   color: black;
   font-weight: bold;
 }
+
+.header3 p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #646961;
+}
+
+.header3 b {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.header3 {
+  background-color: #5ab826;
+  border-bottom: 10px solid #80808077;
+}
+
+.aside1 {
+  border-right: 10px solid #80808077;
+}
+.aside2 {
+  border-left: 10px solid #80808077;
+}
+
+.threads {
+  background-color: #5ab826;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.threads a {
+  color: #454942;
+}
+
+.threads a:hover {
+  color: white;
+}
+
+.threads:hover {
+  background-color: #646961;
+}
+
+/*------------------------ Login form styles ---------------------*/
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #5ab826;
+}
+
+.login-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-form .form-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  color: black;
+}
+
+/*--------------------- Registration form styles --------------------------*/
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #5ab826;
+}
+
+.register-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.register-form .form-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+  color: black;
+}
+
+/*--------------- Aside 1 Home.html styling ---------------*/
+
+/* .threads {
+  background-color: #5ab826;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.threads a {
+  color: #454942;
+  text-decoration: none;
+}
+
+.threads a:hover {
+  color: white;
+}
+
+.threads:hover {
+  background-color: #646961;
+}
+
+.threads h4,
+.threads p {
+  margin: 0;
+  padding: 0;
+} */
+
 /* @media (max-width: 800px) {
   .main {
     flex: 3;
   }
-
+  
   .aside1 {
     order: 1;
   }
-
+  
   .main {
     order: 2;
   }
-
+  
   .aside2 {
     order: 3;
     display: none;

@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 
 ### imports from other files in our project ###
 from app.models import Profile, MessageBoard, Post
-from app.forms import LoginForm, ProfileForm, BoardForm
+from app.forms import LoginForm, ProfileForm, BoardForm, PostForm
 
 
 ### Regular User Views ###
@@ -167,9 +168,10 @@ def forum_view(request, board_id: int):
 
 
 # user can make a post in a selected forum category, login required
+@login_required(login_url='login')
 def create_post_view(request, board_id: int):
     
-
+    
     board = MessageBoard.objects.get(id=board_id)
 
     form = PostForm()
@@ -177,8 +179,14 @@ def create_post_view(request, board_id: int):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('forum', board_id=board_id)
+            post = form.save(commit=False)
+
+            post.user = request.user
+            post.board = board
+
+            post.save()
+
+            return redirect('forum', board_id=board.id)
         
     context = {
         'form' : form,
@@ -241,5 +249,6 @@ def update_board_view(request, board_id: int):
 def delete_post_view(request, post_id: int):
     
     post = Post.objects.get(id=post_id)
+    post.delete()
 
     return render(request, 'moderator_panel.html')
