@@ -7,7 +7,7 @@
 <div class="profile-container">
   <div class="profile-header">
     <img
-      src="{{ user.profile.profile_img.url }}"
+      src="{{ user.profile.profile_img }}"
       alt="{{ user.username }}'s profile image"
       class="profile-image"
     />
@@ -20,9 +20,8 @@
 
 {% comment %} edit profile button {% endcomment %}
 
-
 <div class="edit-profile-form-container">
-  <form method='post' class="edit-profile-form">
+  <form method="post" class="edit-profile-form" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
       {{ form.profile_img.label_tag }} {{ form.profile_img }}
