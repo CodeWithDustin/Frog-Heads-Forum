@@ -1,18 +1,21 @@
-{% extends 'base.html' %}
-<title>{% block title %} Login - Frog Heads Forum</title>
-{% endblock %} {%block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    {{ form.username.label_tag }} {{ form.username }}
-    <div class="form-error">{{ form.username.errors }}</div>
-  </div>
-  <div class="form-group">
-    {{ form.password.label_tag }} {{ form.password }}
-    <div class="form-error">{{ form.password.errors }}</div>
-  </div>
-  <div class="form-error">{{ error_message }}</div>
-  <button type="submit">Login</button>
-</form>
+{% extends 'base.html' %} {%block title %}Login - Frog Heads Forum{% endblock %}
+{% block content %}
+<div class="login-container">
+  <h2>Login</h2>
+  <form method="post" class="login-form">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.username.label_tag }} {{ form.username }}
+      <div class="form-error">{{ form.username.errors }}</div>
+    </div>
+    <div class="form-group">
+      {{ form.password.label_tag }} {{ form.password }}
+      <div class="form-error">{{ form.password.errors }}</div>
+    </div>
+    {% if error_message %}
+    <div class="form-error">{{ error_message }}</div>
+    {% endif %}
+    <button type="submit" class="button">Login</button>
+  </form>
+</div>
 {% endblock %}
