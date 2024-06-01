@@ -14,12 +14,17 @@
     <header class="header1">
       <ul class="nav1-left">
         <li><a href="{% url 'home' %}">Home</a></li>
+        {% if user.groups.all.0.name == "Moderator"%}
+          <li><a href="{% url 'board_control' %}">Moderator Panel</a></li>
+        {% endif %}
       </ul>
 
       <ul class="nav1-right">
         {% if user.is_authenticated %}
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
+
+          
         {% else %}
         <li><a href="{% url 'register' %}">Register</a></li>
         <li><a href="{% url 'login' %}">Login</a></li>

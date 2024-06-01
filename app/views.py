@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpResponse
 
 ### imports from other files in our project ###
 from app.models import Profile, MessageBoard, Post
@@ -154,14 +154,31 @@ def edit_profile_view(request, profile_id: int):
 # login optional, but required to make a post or upvote/downvote
 # moderator can delete posts
 def forum_view(request, board_id: int):
+
+    form = PostForm()
     
     board = MessageBoard.objects.get(id=board_id)
 
     posts = Post.objects.filter(board=board)
 
+
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+
+            post.user = request.user
+            post.board = board
+
+            post.save()
+
+            return redirect('forum', board_id=board.id)
+
+
     context = {
         'board' : board,
         'posts' : posts,
+        'form' : form,
     }
 
     return render(request, 'forum.html', context)
@@ -201,11 +218,28 @@ def create_post_view(request, board_id: int):
 # moderator category control panel
 def board_control_view(request):
 
+    # check if user is in moderator group
+    if not request.user.groups.filter(name='Moderator').exists():
+        return HttpResponse('You are not authorized to view this page')
+
+
+
+    form = BoardForm()
+
+    if request.method == 'POST':
+        form = BoardForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('board_control')
+
+
+
     context = {
         'all_boards' : MessageBoard.objects.all(),
+        'form' : form,
     }
-    
-    return render(request, 'moderator_panel.html')
+
+    return render(request, 'moderator_panel.html', context)
 
 
 # moderator can create a new forum category
