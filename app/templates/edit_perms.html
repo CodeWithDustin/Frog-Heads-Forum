@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="permissions-container">
+  <h2>Toggle Permissions</h2>
+
+
+  {% for user in all_users %}
+
+  <div class="user-permissions-container">
+    <h3>{{ user.username }}</h3>
+    {% if user.groups.all.0.name == 'Moderator' %}
+    <p>Permissions: <strong>Moderator</strong></p>
+    {% else %}
+    <p>Permissions: Normal</p>
+    {% endif %}
+
+    <button><a href="{% url 'toggle_perms' user.id %}">Toggle Permission Status</a></button>
+  </div>
+
+  {% endfor %}
+
+  <button><a href="{% url 'board_control' %}">Main Panel</a></button>
+
+</div>
+
+
+<style>
+
+  .user-permissions-container {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+{% endblock content %}
