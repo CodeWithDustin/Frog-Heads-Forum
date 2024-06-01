@@ -1,43 +1,41 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends 'base.html' %} {% block title %} {{ board.title }} - Frog Heads Forum
+{% endblock %} {% block content %}
+<h2>{{ board.title }}</h2>
+<p>{{ board.description }}</p>
 
-{% block content %}
-
-<div class="forum">
-  <div class="forum-title">
-    <h2>{{ board.title }}</h2>
-    <p>{{ board.description }}</p>
-  </div>
+<div class="posts-container">
   {% for post in posts %}
-
-  <div class="forum-post-container">
-    <div class="post-subject">
-      <h3>{{ post.subject }}</h3>
+  <div class="post">
+    <div class="post-header">
+      <strong>{{ post.user.username }}</strong> -
+      <em>{{ post.date_posted }}</em>
     </div>
-    <div class="post-content">
+    <div class="post-body">
       <p>{{ post.post }}</p>
     </div>
-    <div class="post-info">
-      <p>Posted by {{ post.user.username }} on {{ post.date_posted }}</p>
-    </div>
   </div>
-  
-
+  {% empty %}
+  <p>No posts yet. Be the first to post!</p>
   {% endfor %}
-  <div class="create-post-container">
-    <button><a href="{% url 'post' board.id %}" class="create-post">Create Post</a></button>
-  </div>
 </div>
 
-<style>
-  .forum-post-container {
-    border: 1px solid black;
-    margin: 10px;
-    padding: 10px;
-  }
-
-  .post-info {
-    text-align: right;
-  }
-</style>
-{% endblock content %}
+{% if user.is_authenticated %}
+<div class="new-post">
+  <h3>New Post</h3>
+  <form method="post" action="{% url 'post' board.id %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <textarea
+        class="textarea1"
+        name="post"
+        rows="10"
+        cols="100"
+        required
+      ></textarea>
+    </div>
+    <button class="Post-Button" type="submit">Post</button>
+  </form>
+</div>
+{% else %}
+<p><a href="{% url 'login' %}">Login</a> to post or reply.</p>
+{% endif %} {% endblock %}

@@ -371,67 +371,30 @@
   color: black;
 }
 
-/*--------------- Aside 1 Home.html styling ---------------*/
+/*------------- Forum Stylings -----------------*/
 
-/* .threads {
-  background-color: #5ab826;
+.post {
+  border: 1px solid black;
+  margin: 10px;
   padding: 10px;
-  border-radius: 8px;
-  text-align: left;
-  margin-bottom: 10px;
+}
+
+.textarea1 {
+  resize: none;
+}
+
+.Post-Button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.threads a {
-  color: #454942;
-  text-decoration: none;
+.Post-Button:hover {
+  color: black;
 }
-
-.threads a:hover {
-  color: white;
-}
-
-.threads:hover {
-  background-color: #646961;
-}
-
-.threads h4,
-.threads p {
-  margin: 0;
-  padding: 0;
-} */
-
-/* @media (max-width: 800px) {
-  .main {
-    flex: 3;
-  }
-  
-  .aside1 {
-    order: 1;
-  }
-  
-  .main {
-    order: 2;
-  }
-  
-  .aside2 {
-    order: 3;
-    display: none;
-  }
-
-  .footer {
-    order: 4;
-  }
-} */
-
-/* @media (max-width: 400px) {
-  .aside {
-    flex: 1;
-  }
-} */
-
-/* @media (max-width <= 800px) {
-  .aside2 {
-    display: none;
-  }
-} */
