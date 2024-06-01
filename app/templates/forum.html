@@ -13,39 +13,13 @@
     <div class="post-body">
       <p>{{ post.post }}</p>
     </div>
+    {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
+      {% comment %} make a button {% endcomment %}
+    {% endif %}
   </div>
   {% empty %}
   <p>No posts yet. Be the first to post!</p>
   {% endfor %}
-<<<<<<< HEAD
-  
-
-
-  <div class="create-post-container">
-    <h2>Create Post</h2>
-    <form method='post' class='create-post-form'>
-      {% csrf_token %}
-      <div class="form-group">
-        {{ form.subject.label_tag }} {{ form.subject }}
-        <div class="form-error">{{ form.subject.errors }}</div>
-      </div>
-      <div class="form-group">
-        {{ form.post.label_tag }} {{ form.post }}
-        <div class="form-error">{{ form.post.errors }}</div>
-      </div>
-      <button type="submit" class="button">Create Post</button>
-    </form>
-  </div>
-
-
-    {% comment %} <button><a href="{% url 'post' board.id %}" class="create-post">Create Post</a></button> {% endcomment %}
-
-
-
-
-  
-=======
->>>>>>> 59b473fbc384234ddfa82a8484faca33af3eed04
 </div>
 
 {% if user.is_authenticated %}
