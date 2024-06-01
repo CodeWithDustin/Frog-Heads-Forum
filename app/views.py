@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 
 ### imports from other files in our project ###
 from app.models import Profile, MessageBoard, Post
@@ -136,12 +137,27 @@ def forum_view(request, board_id: int):
         'posts' : posts,
     }
 
-    return render(request, 'need a file', context)
+    return render(request, 'forum.html', context)
 
 
 # user can make a post in a selected forum category, login required
+@login_required
 def create_post_view(request, board_id: int):
-    pass
+    board = MessageBoard.objects.get(id=board_id)
+
+    if request.method == 'POST':
+        post_content = request.POST.get('post')
+        if post_content:
+            post = Post.objects.create(
+                user=request.user,
+                board=board,
+                post=post_content
+            )
+            return redirect('forum', board_id=board.id)
+        else:
+            return HttpResponseForbidden("Post content cannot be empty")
+
+    return redirect('forum', board_id=board.id)
 
 
 ### Moderator Only Views ###

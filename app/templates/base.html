@@ -44,22 +44,14 @@
 
     <aside class="aside1">
       <ul>
-        <li>
-          <li class="threads"><a href="#"><h4>🐸 Thread 1</h4></a></li>
-        </li>
-        <li>
-          <li class="threads"><a href="#"><h4>🐸 Thread 2</h4></a></li>
-        </li>
-        <li>
-          <li class="threads"><a href="#"><h4>🐸 Thread 3</h4></a></li>
-        </li>
-        <li>
-          <li class="threads"><a href="#"><h4>🐸 Thread 4</h4></a></li>
-        </li>
-        <li>
-          <li class="threads"><a href="#"><h4>🐸 Thread 5</h4></a></li>
-        </li>
-
+        {% for board in all_boards %}
+          <li class="threads">
+            <a href="{% url 'forum' board.id %}">
+              <h4>🐸 {{ board.title }}</h4>
+              <p>{{ board.description }}</p>
+            </a>
+          </li>
+        {% endfor %}
       </ul>
     </aside>
 

@@ -23,13 +23,5 @@
       our community together. Happy posting and welcome to Frog Heads!
     </p>
   </div>
-
-  {% comment %} {% for board in all_boards %}
-  <div class="board_container">
-    <h3>{{ board.name }}</h3>
-    <p>{{ board.description }}</p>
-    <a href="{% url 'forum' board.id %}">View Board!</a>
-  </div>
-  {% endfor %}
+  {% endblock %}
 </div>
-{% endcomment %} {% endblock %}

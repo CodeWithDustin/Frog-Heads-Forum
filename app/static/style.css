@@ -371,6 +371,36 @@
   color: black;
 }
 
+/*--------------- Aside 1 Home.html styling ---------------*/
+
+/* .threads {
+  background-color: #5ab826;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.threads a {
+  color: #454942;
+  text-decoration: none;
+}
+
+.threads a:hover {
+  color: white;
+}
+
+.threads:hover {
+  background-color: #646961;
+}
+
+.threads h4,
+.threads p {
+  margin: 0;
+  padding: 0;
+} */
+
 /* @media (max-width: 800px) {
   .main {
     flex: 3;
