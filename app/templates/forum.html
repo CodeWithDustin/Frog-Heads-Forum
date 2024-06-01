@@ -14,7 +14,7 @@
       <p>{{ post.post }}</p>
     </div>
     {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
-      {% comment %} make a button {% endcomment %}
+      <button onclick="return confirm('Are you Sure?')"><a href="{% url 'delete_post' post.id %}">Delete Post</a></button>
     {% endif %}
   </div>
   {% empty %}

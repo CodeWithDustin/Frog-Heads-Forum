@@ -274,10 +274,21 @@ def update_board_view(request, board_id: int):
 
     board = MessageBoard.objects.get(id=board_id)
 
+    form = BoardForm(instance=board)
+
+    if request.method == 'POST':
+        form = BoardForm(request.POST, instance=board)
+        if form.is_valid():
+            form.save()
+            return redirect('board_control')
+
     # gonna need a form here 
 
-    pass
+    context = {
+        'form' : form,
+    }
 
+    return render(request, 'update_board.html', context)
 
 # moderator can delete a post
 def delete_post_view(request, post_id: int):
