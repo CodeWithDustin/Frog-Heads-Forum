@@ -296,8 +296,12 @@ def update_board_view(request, board_id: int):
 
 # moderator can delete a post
 def delete_post_view(request, post_id: int):
+    post = get_object_or_404(Post, id=post_id)
     
-    post = Post.objects.get(id=post_id)
-    post.delete()
+    # Check if the request user is the post owner or a moderator
+    if request.user == post.user or request.user.groups.filter(name='Moderator').exists():
+        post.delete()
+        return redirect('forum', board_id=post.board.id)
+    else:
+        return HttpResponseForbidden("You are not allowed to delete this post.")
 
-    return render(request, 'moderator_panel.html')

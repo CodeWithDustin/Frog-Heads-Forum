@@ -16,9 +16,7 @@
         </div>
         {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
         <div class="post-controls">
-          <button onclick="return confirm('Are you sure?')" class="delete-button">
-            <a href="{% url 'delete_post' post.id %}">Delete Post</a>
-          </button>
+          <button class="delete-button" data-post-id="{{ post.id }}">Delete Post</button>
         </div>
         {% endif %}
       </div>
@@ -34,7 +32,7 @@
   {% if user.is_authenticated %}
   <div class="new-post">
     <h3>New Post</h3>
-    <form method="post" action="{% url 'post' board.id %}">
+    <form method="post" action="{% url 'post' board.id %}" id="newPostForm">
       {% csrf_token %}
       <div class="form-group">
         <textarea class="textarea1" name="post" rows="10" cols="100" required></textarea>
@@ -46,4 +44,60 @@
   <p><a href="{% url 'login' %}">Login</a> to post or reply.</p>
   {% endif %}
 </div>
+
+<!-- Modal -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete this post?</p>
+    <div class="modal-buttons">
+      <button id="confirmDeleteButton" class="confirm-button">Yes, delete</button>
+      <button id="cancelButton" class="cancel-button">Cancel</button>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('Document loaded');
+    var modal = document.getElementById("deleteModal");
+    var span = document.getElementsByClassName("close")[0];
+    var confirmDeleteButton = document.getElementById("confirmDeleteButton");
+    var postToDelete = null;
+
+    document.querySelectorAll('.delete-button').forEach(button => {
+        button.onclick = function() {
+            console.log('Delete button clicked');
+            postToDelete = this.getAttribute('data-post-id');
+            modal.style.display = "block";
+        }
+    });
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    confirmDeleteButton.onclick = function() {
+        console.log('Confirm delete clicked for post id: ', postToDelete);
+        if (postToDelete) {
+            window.location.href = '/mod-control-panel/delete-post/' + postToDelete + '/';
+        }
+    }
+
+    document.getElementById("cancelButton").onclick = function() {
+        modal.style.display = "none";
+    }
+});
+</script>
+{% endblock %}
+
