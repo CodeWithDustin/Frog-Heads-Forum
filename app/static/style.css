@@ -373,21 +373,125 @@
 
 /*------------- Forum Stylings -----------------*/
 
+.forum-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forum-container h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+.forum-container p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.posts-container {
+  margin-top: 20px;
+}
+
 .post {
-  border: 1px solid black;
-  margin: 10px;
-  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.post-profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.post-user-info {
+  flex-grow: 1;
+}
+
+.post-user-info strong {
+  display: block;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.post-user-info em {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.post-controls {
+  text-align: right;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #d9534f;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.delete-button a {
+  text-decoration: none;
+  color: #d9534f;
+}
+
+.delete-button a:hover {
+  text-decoration: underline;
+}
+
+.post-body {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.new-post {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.new-post h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.new-post .form-group {
+  margin-bottom: 20px;
 }
 
 .textarea1 {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
   resize: none;
 }
 
-.Post-Button {
+.post-button {
   width: 100%;
   padding: 10px;
   background-color: #5ab826;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 1em;
@@ -395,6 +499,115 @@
   transition: background-color 0.3s;
 }
 
-.Post-Button:hover {
-  color: black;
+.post-button:hover {
+  background-color: #4a9b22;
+  color: #fff;
 }
+
+
+/*------------ Profile Page Styling ---------------*/
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-header h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+.profile-details p {
+  font-size: 1.2em;
+  color: #555;
+  margin: 10px 0;
+}
+
+.profile-details strong {
+  color: #333;
+}
+
+.edit-profile-form-container {
+  margin-top: 20px;
+}
+
+.edit-profile-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-profile-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-profile-form .form-error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.edit-profile-form input[type="text"],
+.edit-profile-form input[type="file"],
+.edit-profile-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  resize: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+
+.edit-profile-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-button a {
+  color: white;
+  text-decoration: none;
+}
+
+.edit-profile-button:hover {
+  background-color: #45a049;
+}
+

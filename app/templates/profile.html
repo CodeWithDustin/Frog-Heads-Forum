@@ -1,6 +1,9 @@
-{% extends 'base.html' %} {% block title %}
+{% extends 'base.html' %} 
+{% block title %}
 <title>{{ user.username }}'s Profile - Frog Heads Forum</title>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <div class="profile-container">
   <div class="profile-header">
     <img
@@ -14,10 +17,9 @@
     <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
     <p><strong>Location:</strong> {{ user.profile.location }}</p>
   </div>
-
-{% comment %} edit profile button {% endcomment %}
-{% comment %} <p>ID: {{ profile.id }}</p> {% endcomment %}
-<button><a href="{% url 'edit_profile' user.profile.id %}">Edit Profile</a></button>
-
+  
+  <button class="edit-profile-button">
+    <a href="{% url 'edit_profile' user.profile.id %}">Edit Profile</a>
+  </button>
 </div>
 {% endblock %}

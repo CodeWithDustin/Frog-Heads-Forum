@@ -1,44 +1,49 @@
-{% extends 'base.html' %} {% block title %} {{ board.title }} - Frog Heads Forum
-{% endblock %} {% block content %}
-<h2>{{ board.title }}</h2>
-<p>{{ board.description }}</p>
+{% extends 'base.html' %} 
+{% block title %} {{ board.title }} - Frog Heads Forum {% endblock %} 
+{% block content %}
+<div class="forum-container">
+  <h2>{{ board.title }}</h2>
+  <p>{{ board.description }}</p>
 
-<div class="posts-container">
-  {% for post in posts %}
-  <div class="post">
-    <div class="post-header">
-      <strong>{{ post.user.username }}</strong> -
-      <em>{{ post.date_posted }}</em>
+  <div class="posts-container">
+    {% for post in posts %}
+    <div class="post">
+      <div class="post-header">
+        <img src="{{ post.user.profile.profile_img.url }}" alt="{{ post.user.username }}'s profile image" class="post-profile-image">
+        <div class="post-user-info">
+          <strong>{{ post.user.username }}</strong>
+          <em>{{ post.date_posted }}</em>
+        </div>
+        {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
+        <div class="post-controls">
+          <button onclick="return confirm('Are you sure?')" class="delete-button">
+            <a href="{% url 'delete_post' post.id %}">Delete Post</a>
+          </button>
+        </div>
+        {% endif %}
+      </div>
+      <div class="post-body">
+        <p>{{ post.post }}</p>
+      </div>
     </div>
-    <div class="post-body">
-      <p>{{ post.post }}</p>
-    </div>
-    {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
-      <button onclick="return confirm('Are you Sure?')"><a href="{% url 'delete_post' post.id %}">Delete Post</a></button>
-    {% endif %}
+    {% empty %}
+    <p>No posts yet. Be the first to post!</p>
+    {% endfor %}
   </div>
-  {% empty %}
-  <p>No posts yet. Be the first to post!</p>
-  {% endfor %}
-</div>
 
-{% if user.is_authenticated %}
-<div class="new-post">
-  <h3>New Post</h3>
-  <form method="post" action="{% url 'post' board.id %}">
-    {% csrf_token %}
-    <div class="form-group">
-      <textarea
-        class="textarea1"
-        name="post"
-        rows="10"
-        cols="100"
-        required
-      ></textarea>
-    </div>
-    <button class="Post-Button" type="submit">Post</button>
-  </form>
+  {% if user.is_authenticated %}
+  <div class="new-post">
+    <h3>New Post</h3>
+    <form method="post" action="{% url 'post' board.id %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <textarea class="textarea1" name="post" rows="10" cols="100" required></textarea>
+      </div>
+      <button class="post-button" type="submit">Post</button>
+    </form>
+  </div>
+  {% else %}
+  <p><a href="{% url 'login' %}">Login</a> to post or reply.</p>
+  {% endif %}
 </div>
-{% else %}
-<p><a href="{% url 'login' %}">Login</a> to post or reply.</p>
-{% endif %} {% endblock %}
+{% endblock %}
