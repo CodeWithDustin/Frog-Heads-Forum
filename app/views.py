@@ -163,7 +163,7 @@ def forum_view(request, board_id: int):
         'posts' : posts,
     }
 
-    return render(request, 'need a file', context)
+    return render(request, 'forum.html', context)
 
 
 # user can make a post in a selected forum category, login required
