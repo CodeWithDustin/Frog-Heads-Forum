@@ -493,16 +493,17 @@
 }
 
 .new-post {
+  box-sizing: border-box;
   margin-top: 40px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #555;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .new-post h3 {
   font-size: 1.5em;
-  color: #333;
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -511,6 +512,7 @@
 }
 
 .textarea1 {
+  box-sizing: border-box;
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -521,6 +523,7 @@
 
 .post-button {
   width: 100%;
+  margin-top: 10px;
   padding: 10px;
   background-color: #5ab826;
   color: #fff;
