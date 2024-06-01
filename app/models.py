@@ -27,9 +27,10 @@ class Post(models.Model):
   board = models.ForeignKey(MessageBoard, on_delete=models.CASCADE)
   subject = models.CharField(max_length=100, blank=True, null=True)
   post = models.CharField(max_length=300)
+  post_img = models.ImageField(upload_to='media', blank=True)
   date_posted = models.DateField(default=datetime.now)
 
   def __str__(self):
-    return self.name
+    return f"{self.user.username}'s Post on {self.board.title}"
 
   

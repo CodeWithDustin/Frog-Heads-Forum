@@ -22,6 +22,9 @@
       </div>
       <div class="post-body">
         <p>{{ post.post }}</p>
+        {% if post.post_img %}
+        <img src="{{ post.post_img.url }}" alt="Post image" class="post-image">
+        {% endif %}
       </div>
     </div>
     {% empty %}
@@ -32,10 +35,14 @@
   {% if user.is_authenticated %}
   <div class="new-post">
     <h3>New Post</h3>
-    <form method="post" action="{% url 'post' board.id %}" id="newPostForm">
+    <form method="post" action="{% url 'post' board.id %}" id="newPostForm" enctype='multipart/form-data'>
       {% csrf_token %}
       <div class="form-group">
         <textarea class="textarea1" name="post" rows="10" cols="100" required></textarea>
+      </div>
+      <div class="form-image">
+        {{ form.post_img.label_tag }} {{ form.post_img }}
+        <div class="form-errors">{{ form.post_img.errors }}</div>
       </div>
       <button class="post-button" type="submit">Post</button>
     </form>
