@@ -41,6 +41,8 @@ urlpatterns = [
     path('mod-control-panel/edit-board/<int:board_id>/', update_board_view, name='edit_board'),
     path('mod-control-panel/delete-board/<int:board_id>/', delete_board_view, name='delete_board'),
     path('mod-control-panel/delete-post/<int:post_id>/', delete_post_view, name='delete_post'),
+    path('mod-control-panel/edit-perms/', edit_perms_view, name='edit_perms'),
+    path('mod-control-panel/toggle-perms/<int:user_id>/', toggle_perms_view, name='toggle_perms'),
 
 
 ] 

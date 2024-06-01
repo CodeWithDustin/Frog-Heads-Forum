@@ -30,6 +30,11 @@
     <button class="delete-button" data-board-id="{{ board.id }}">Delete Board</button>
   </div>
   {% endfor %}
+
+  <div class="edit-permissions">
+    <button><a href="{% url 'edit_perms' %}">Go To Edit Permissions</a></button>
+  </div>
+
 </div>
 
 <!-- Delete Confirmation Modal -->
