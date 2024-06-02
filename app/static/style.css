@@ -717,25 +717,75 @@
 }
 
 /*---------- MOD PANEL STYLES-------------*/
-
-/* Add this to your existing CSS or create a new file and link it */
-
 .moderator-panel {
   margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.moderator-panel h2 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .create-board-form {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #4a9e22;
 }
 
 .mod-panel-board {
   margin-bottom: 20px;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .mod-panel-board h3 {
   margin-top: 0;
+  color: #333;
+}
+
+.board-actions {
+  margin-top: 10px;
+}
+
+.board-actions .button {
+  margin-right: 10px;
 }
 
 .delete-button {
@@ -766,12 +816,19 @@
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fff;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
 .close {
@@ -788,6 +845,10 @@
   cursor: pointer;
 }
 
+.modal-actions .button {
+  margin-right: 10px;
+}
+
 #confirmDeleteButton,
 #cancelButton {
   background-color: #f44336;
@@ -802,4 +863,169 @@
 #confirmDeleteButton:hover,
 #cancelButton:hover {
   background-color: #ff6666;
+}
+
+/*---------------- Edit Perms Style -----------------------*/
+
+.permissions-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.permissions-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Search form styling */
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+.search-form .button {
+  padding: 8px 16px;
+  background-color: #5ab826;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-form .button:hover {
+  background-color: #4a9e22;
+}
+
+/* User permissions container styling */
+.user-permissions-container {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-permissions-container h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.user-permissions-container p {
+  margin: 5px 0;
+}
+
+.user-permissions-container .button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-permissions-container .button:hover {
+  background-color: #d32f2f;
+}
+
+.permissions-container .button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.permissions-container .button:hover {
+  background-color: #4a9e22;
+}
+
+/*--------------- Edit Board Styles -------------------------*/
+.edit-board {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-board h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.edit-board-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-board-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.edit-board-form .form-group input,
+.edit-board-form .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.edit-board-form .form-group .form-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+/* Button styling */
+.edit-board-form .button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-board-form .button:hover {
+  background-color: #4a9e22;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #bbb;
 }

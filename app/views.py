@@ -306,26 +306,30 @@ def delete_post_view(request, post_id: int):
         return HttpResponseForbidden("You are not allowed to delete this post.")
 
 
+@login_required
 def edit_perms_view(request):
+    query = request.GET.get('q')
+    moderator_group = Group.objects.get(name='Moderator')
 
-    # check if user is in moderator group
-    if not request.user.groups.filter(name='Moderator').exists():
-        return HttpResponse('You are not authorized to view this page')
+    if query:
+        all_users = User.objects.filter(username__icontains=query)
+    else:
+        all_users = User.objects.filter(groups=moderator_group)
 
     context = {
-        'all_users' : User.objects.all(),
+        'all_users': all_users,
     }
-
     return render(request, 'edit_perms.html', context)
 
 
-def toggle_perms_view(request, user_id: int):
+@login_required
+def toggle_perms_view(request, user_id):
     user = User.objects.get(id=user_id)
     moderator_group = Group.objects.get(name='Moderator')
-
-    if user.groups.filter(name='Moderator').exists():
+    
+    if moderator_group in user.groups.all():
         user.groups.remove(moderator_group)
     else:
         user.groups.add(moderator_group)
-
+    
     return redirect('edit_perms')
