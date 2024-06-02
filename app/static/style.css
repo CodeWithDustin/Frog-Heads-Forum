@@ -145,6 +145,13 @@
 
 .footer {
   background: #5ab826;
+  height: 200px;
+}
+
+.aside1,
+.aside2,
+.main {
+  height: 100vh;
 }
 
 .ad1 {
