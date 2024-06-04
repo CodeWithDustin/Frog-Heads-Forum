@@ -17,7 +17,7 @@
 
 .wrapper > * {
   padding: 10px;
-  height: 1200px;
+  height: 1450px;
   flex: 1 100%;
 }
 
@@ -68,6 +68,7 @@
   font-size: 18px;
   overflow-y: scroll;
   text-align: left;
+  height: 1450px;
 }
 
 .within1 {
@@ -84,6 +85,7 @@
   flex: 2;
   font-size: 18px;
   text-align: center;
+  height: 1450px;
 }
 
 .main {
@@ -97,8 +99,8 @@
   overflow-y: scroll;
   font-size: 18px;
   text-align: left;
+  height: 1450px;
 }
-
 .home_main {
   width: 100%;
   text-align: center;
@@ -144,16 +146,10 @@
   text-transform: uppercase;
 }
 
-.footer {
+/* .footer {
   background: #5ab826;
   height: 200px;
-}
-
-.aside1,
-.aside2,
-.main {
-  height: 100vh;
-}
+} */
 
 .ad1 {
   background: #5ab826;
@@ -1053,7 +1049,11 @@
 }
 
 /* Common button styles */
-.button, .edit-button, .delete-button, .reply-button, .post-button {
+.button,
+.edit-button,
+.delete-button,
+.reply-button,
+.post-button {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
@@ -1064,7 +1064,7 @@
 
 /* Edit button styles */
 .edit-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   color: white;
 }
 
@@ -1084,7 +1084,7 @@
 
 /* Reply button styles */
 .reply-button {
-  background-color: #008CBA; /* Blue */
+  background-color: #008cba; /* Blue */
   color: white;
 }
 
@@ -1143,72 +1143,6 @@
   background-color: #ff6666;
 }
 
-<<<<<<< HEAD
-
-/* Post History Link Button */
-
-.post-link {
-  /* position: relative; */
-  background-color: #00b4d8;
-  color: white;
-  padding: 0px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  /* margin-left: none; */
-  /* text-align: center; */
-}
-
-.post-link:hover {
-  background-color:  #027ec1;
-}
-
-.post-link {
-  background-color: transparent;
-  border: none;
-  color: #027ec1;
-  cursor: pointer;
-  font-size: 0.9em;
-}
-
-.post-link a {
-  text-decoration: none;
-  color: white;
-}
-
-.post-link a:hover {
-  /* text-decoration: underline; */
-}
-
-.post-link {
-  margin-right: 10px;
-  background-color: #00b4d8;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-}
-
-.post-link:hover {
-  background-color: #027ec1;
-}
-
-.post-link {
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 1em;
-}
-.post-link {
-  background-color: #00b4d8; /* Red */
-  color: white;
-}
-=======
 .reply {
   border: 1px solid #ccc;
   margin-bottom: 10px;
@@ -1239,6 +1173,3 @@
 .reply-controls {
   margin-top: 10px;
 }
-
-
->>>>>>> c6d4cf868956f81afb6ddc6be25515c7b81e4cd1
