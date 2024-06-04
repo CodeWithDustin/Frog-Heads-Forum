@@ -4,8 +4,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden, HttpResponse
+from django.http import HttpResponseForbidden, HttpResponse, JsonResponse
 from itertools import chain
+from django.urls import reverse
 
 ### imports from other files in our project ###
 from app.models import *
@@ -168,6 +169,8 @@ def forum_view(request, board_id: int):
 
     posts = Post.objects.filter(board=board)
 
+    is_moderator = request.user.groups.filter(name="Moderator").exists()
+
 
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -186,6 +189,7 @@ def forum_view(request, board_id: int):
         'board' : board,
         'posts' : posts,
         'form' : form,
+        'is_moderator': is_moderator,
     }
 
     return render(request, 'forum.html', context)
@@ -235,6 +239,54 @@ def edit_post_view(request, post_id):
         form = PostForm(instance=post)
 
     return render(request, 'edit_post.html', {'form': form, 'post': post})
+
+
+@login_required
+def reply_to_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.post = post
+            reply.user = request.user
+            reply.save()
+            return redirect('forum', board_id=post.board.id)  # Redirect to the forum or post page
+    else:
+        form = ReplyForm()
+    
+    return render(request, 'reply.html', {'form': form, 'post': post})
+
+@login_required
+def delete_reply(request, reply_id):
+    reply = get_object_or_404(Reply, id=reply_id)
+    post = reply.post
+    if request.user == reply.user or request.user.groups.filter(name='Moderator').exists():
+        reply.delete()
+    return redirect('forum', board_id=post.board.id)
+
+def load_more_replies(request, post_id):
+    replies = Reply.objects.filter(post_id=post_id)[3:6]  # Fetch replies 4 to 6
+    has_more_replies = True if Reply.objects.filter(post_id=post_id).count() > 6 else False
+
+    data = {
+        'replies': [
+            {
+                'user': {
+                    'profile': {
+                        'profile_img': reply.user.profile.profile_img.url
+                    },
+                    'username': reply.user.username
+                },
+                'date_replied': reply.date_replied,
+                'reply': reply.reply
+            }
+            for reply in replies
+        ],
+        'has_more_replies': has_more_replies
+    }
+    return JsonResponse(data)
 
 
 ### Moderator Only Views ###

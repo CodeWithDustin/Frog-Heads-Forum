@@ -27,3 +27,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['subject', 'post', 'post_img']
+
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['reply']

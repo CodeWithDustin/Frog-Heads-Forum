@@ -32,5 +32,11 @@ class Post(models.Model):
 
   def __str__(self):
     return f"{self.user.username}'s Post on {self.board.title}"
+  
+class Reply(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='replies')
+    reply = models.TextField()
+    date_replied = models.DateField(default=datetime.now)
 
   

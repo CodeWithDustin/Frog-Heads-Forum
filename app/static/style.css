@@ -1052,7 +1052,8 @@
   background-color: #bbb;
 }
 
-.button, .edit-button, .delete-button {
+/* Common button styles */
+.button, .edit-button, .delete-button, .reply-button, .post-button {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
@@ -1079,6 +1080,16 @@
 
 .delete-button:hover {
   background-color: #ff6666;
+}
+
+/* Reply button styles */
+.reply-button {
+  background-color: #008CBA; /* Blue */
+  color: white;
+}
+
+.reply-button:hover {
+  background-color: #007bb5;
 }
 
 /* Modal styles */
@@ -1132,6 +1143,7 @@
   background-color: #ff6666;
 }
 
+<<<<<<< HEAD
 
 /* Post History Link Button */
 
@@ -1196,3 +1208,37 @@
   background-color: #00b4d8; /* Red */
   color: white;
 }
+=======
+.reply {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.reply-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.reply-profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.reply-user-info {
+  font-weight: bold;
+}
+
+.reply-body {
+  margin-bottom: 10px;
+}
+
+.reply-controls {
+  margin-top: 10px;
+}
+
+
+>>>>>>> c6d4cf868956f81afb6ddc6be25515c7b81e4cd1
