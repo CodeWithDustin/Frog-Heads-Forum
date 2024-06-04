@@ -1053,7 +1053,8 @@
 .edit-button,
 .delete-button,
 .reply-button,
-.post-button {
+.post-button,
+.post-link {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
@@ -1064,7 +1065,7 @@
 
 /* Edit button styles */
 .edit-button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   color: white;
 }
 
@@ -1074,7 +1075,7 @@
 
 /* Delete button styles */
 .delete-button {
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
   color: white;
 }
 
@@ -1084,11 +1085,26 @@
 
 /* Reply button styles */
 .reply-button {
-  background-color: #008cba; /* Blue */
+  background-color: #008cba;
   color: white;
 }
 
 .reply-button:hover {
+  background-color: #007bb5;
+}
+
+.post-link {
+  background-color: #008cba;
+  color: white 
+}
+
+.post-link a {
+  color: white;
+  font-weight: normal;
+}
+
+
+.post-link:hover {
   background-color: #007bb5;
 }
 
