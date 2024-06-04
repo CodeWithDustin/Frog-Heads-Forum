@@ -1,6 +1,6 @@
 from django import forms
 
-from app.models import Profile, MessageBoard, Post
+from app.models import *
 
 
 

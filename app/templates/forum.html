@@ -16,6 +16,9 @@
         </div>
         {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
         <div class="post-controls">
+          {% if request.user == post.user %}
+          <button class="edit-button" onclick="window.location.href='{% url 'edit_post' post.id %}'">Edit Post</button>
+          {% endif %}
           <button class="delete-button" data-post-id="{{ post.id }}">Delete Post</button>
         </div>
         {% endif %}
@@ -107,4 +110,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 {% endblock %}
-

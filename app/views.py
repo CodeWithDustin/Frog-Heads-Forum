@@ -8,8 +8,8 @@ from django.http import HttpResponseForbidden, HttpResponse
 from itertools import chain
 
 ### imports from other files in our project ###
-from app.models import Profile, MessageBoard, Post
-from app.forms import LoginForm, ProfileForm, BoardForm, PostForm
+from app.models import *
+from app.forms import *
 
 
 ### Regular User Views ###
@@ -215,6 +215,24 @@ def create_post_view(request, board_id: int):
     }
 
     return render(request, 'create_post.html', context)
+
+@login_required
+def edit_post_view(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    
+    # Check if the logged in user is the owner of the post
+    if request.user != post.user:
+        return HttpResponseForbidden()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('forum', board_id=post.board.id)
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'edit_post.html', {'form': form, 'post': post})
 
 
 ### Moderator Only Views ###

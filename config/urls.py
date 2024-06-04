@@ -31,6 +31,7 @@ urlpatterns = [
     path("logout/", logout_view, name="logout"),
     path("forum/<int:board_id>/", forum_view, name="forum"),
     path('forum/<int:board_id>/create-post/', create_post_view, name='post'),
+    path('edit-post/<int:post_id>/', edit_post_view, name='edit_post'),
     path("profile/", profile_view, name="profile"),
     path("profile/edit/<int:profile_id>/", edit_profile_view, name="edit_profile"),
     path("search/", search, name="search"),

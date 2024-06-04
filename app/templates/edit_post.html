@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="edit-post">
+  <h2>Edit Post</h2>
+  <form method='post' enctype='multipart/form-data' class="edit-post-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <textarea class="textarea1" name="post" rows="10" cols="100" required>{{ form.post.value }}</textarea>
+      <div class="form-error">{{ form.post.errors }}</div>
+    </div>
+    <div class="form-image">
+      {{ form.post_img.label_tag }} {{ form.post_img }}
+      <div class="form-errors">{{ form.post_img.errors }}</div>
+    </div>
+    <button type="submit" class="button">Update Post</button>
+  </form>
+  <button class="back-button" onclick="window.location.href='{% url 'forum' post.board.id %}'">Back to Forum</button>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Your JavaScript here, if needed
+  });
+</script>
+{% endblock %}
