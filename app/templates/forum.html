@@ -50,6 +50,7 @@
         </div>
         {% endfor %}
       </div>
+      {% if user.is_authenticated %}
       <form method="post" action="{% url 'reply' post.id %}" class="reply-form">
         {% csrf_token %}
         <div class="form-group">
@@ -58,6 +59,7 @@
         <button type="submit" class="button reply-button">Reply</button>
       </form>
     </div>
+      {% endif %}
     {% empty %}
     <p>No posts yet. Be the first to post!</p>
     {% endfor %}
