@@ -119,6 +119,7 @@ def profile_view(request):
     
     user = request.user
     profile = Profile.objects.get(username=user)
+    all_posts = Post.objects.filter(user=user)
 
 
     # we could do something like ↓ to get the profile directly
@@ -127,6 +128,7 @@ def profile_view(request):
     context = {
         'user' : user,
         'profile' : profile,
+        'all_posts' : all_posts,
     }
 
     return render(request, 'profile.html', context)
@@ -367,5 +369,7 @@ def search(request):
 def profile_detail(request, username):
     user = get_object_or_404(User, username=username)
     profile = user.profile
+    all_posts = Post.objects.filter(user=user)
 
-    return render(request, 'profile_detail.html', {'profile_user': user, 'profile':profile})
+
+    return render(request, 'profile_detail.html', {'profile_user': user, 'profile':profile, 'all_posts':all_posts})

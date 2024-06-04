@@ -1131,3 +1131,68 @@
 .cancel-button:hover {
   background-color: #ff6666;
 }
+
+
+/* Post History Link Button */
+
+.post-link {
+  /* position: relative; */
+  background-color: #00b4d8;
+  color: white;
+  padding: 0px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  /* margin-left: none; */
+  /* text-align: center; */
+}
+
+.post-link:hover {
+  background-color:  #027ec1;
+}
+
+.post-link {
+  background-color: transparent;
+  border: none;
+  color: #027ec1;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.post-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.post-link a:hover {
+  /* text-decoration: underline; */
+}
+
+.post-link {
+  margin-right: 10px;
+  background-color: #00b4d8;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.post-link:hover {
+  background-color: #027ec1;
+}
+
+.post-link {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1em;
+}
+.post-link {
+  background-color: #00b4d8; /* Red */
+  color: white;
+}

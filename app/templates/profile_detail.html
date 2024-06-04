@@ -17,5 +17,39 @@
     <p><strong>Bio:</strong> {{ profile.bio }}</p>
     <p><strong>Location:</strong> {{ profile.location }}</p>
   </div>
+
+
+  <div class="posts-container post-history">
+    {% for post in all_posts %}
+    <div class="post">
+      <div class="post-header">
+        <img src="{{ post.user.profile.profile_img.url }}" alt="{{ post.user.username }}'s profile image" class="post-profile-image">
+        <div class="post-user-info">
+          <strong>{{ post.user.username }}</strong>
+          <h4>{{ post.date_posted }}</h4>
+        </div>
+        {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
+        {% comment %} <div class="post-controls">
+          {% if request.user == post.user %}
+          <button class="edit-button" onclick="window.location.href='{% url 'edit_post' post.id %}'">Edit Post</button>
+          {% endif %}
+          <button class="delete-button" data-post-id="{{ post.id }}">Delete Post</button>
+        </div> {% endcomment %}
+        {% endif %}
+      </div>
+      <div class="post-body">
+        <p>{{ post.post }}</p>
+        {% if post.post_img %}
+        <img src="{{ post.post_img.url }}" alt="Post image" class="post-image">
+        {% endif %}
+
+        <button class='post-link'><a href="{% url 'forum' post.board.id %}#post_{{ post.id }}">Go to Post</a></button>
+      </div>
+    </div>
+    {% empty %}
+    <p>This user has no post history.  Bummer!</p>
+    {% endfor %}
+  </div>
+
 </div>
 {% endblock %}
