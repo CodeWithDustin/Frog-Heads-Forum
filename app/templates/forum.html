@@ -31,7 +31,7 @@
       </div>
       <div class="replies-container">
         {% for reply in post.replies.all %}
-        <div class="reply">
+        <div class="reply" id="reply_{{ reply.id }}">
           <div class="reply-header">
             <img src="{{ reply.user.profile.profile_img.url }}" alt="{{ reply.user.username }}'s profile image" class="reply-profile-image">
             <div class="reply-user-info">
