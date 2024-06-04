@@ -30,7 +30,11 @@
         <img src="{{ post.user.profile.profile_img.url }}" alt="{{ post.user.username }}'s profile image" class="post-profile-image">
         <div class="post-user-info">
           <strong>{{ post.user.username }}</strong>
+          {% if post|get_name_of_class == "Post" %}
           <h4>{{ post.date_posted }}</h4>
+          {% elif post|get_name_of_class == "Reply" %}
+          <h4>{{ post.date_replied }}</h4>
+          {% endif %}
         </div>
         {% if request.user == post.user or request.user.groups.all.0.name == "Moderator" %}
         <div class="post-controls">
@@ -43,7 +47,11 @@
         {% comment %} <button class='post-link'><a href="{% url 'forum' post.board.id %}#post_{{ post.id }}">Go to Post</a></button> {% endcomment %}
       </div>
       <div class="post-body">
+        {% if post|get_name_of_class == "Post" %}
         <p>{{ post.post }}</p>
+        {% elif post|get_name_of_class == "Reply" %}
+        <p>{{ post.reply }}</p>
+        {% endif %}
         {% if post.post_img %}
         <img src="{{ post.post_img.url }}" alt="Post image" class="post-image">
         {% endif %}
@@ -51,7 +59,7 @@
         {% if post|get_name_of_class == "Post"%}
         <button class='post-link'><a href="{% url 'forum' post.board.id %}#post_{{ post.id }}">Go to Post</a></button>
         {% elif post|get_name_of_class == "Reply" %}
-        <button class="post-link"><a href="{% url 'forum' post.post.id %}#reply_{{ post.id }}">Go to Reply</a></button>
+        <button class="post-link"><a href="{% url 'forum' post.post.board.id %}#reply_{{ post.id }}">Go to Reply</a></button>
         {% endif %}
 
       </div>
