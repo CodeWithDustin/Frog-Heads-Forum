@@ -41,13 +41,11 @@
     
 
     <header class="header3">
-      {% if user.is_authenticated %}
         <form action="{% url 'search' %}" method "POST">
           {% csrf_token %}
         <input type="text" name="q" placeholder="Search for username..."></input>&nbsp;
         <button type="submit" class="search1"><i class="fa fa-search fa-1x"></i></button>
         </form>
-        {% endif %}
         {% if user.is_authenticated %}
           <div class="welcome"><p>Welcome, <b>{{user.username}}</b></p></div>
         {% endif %}
