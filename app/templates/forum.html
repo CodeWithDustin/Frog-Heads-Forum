@@ -29,6 +29,34 @@
         <img src="{{ post.post_img.url }}" alt="Post image" class="post-image">
         {% endif %}
       </div>
+      <div class="replies-container">
+        {% for reply in post.replies.all %}
+        <div class="reply">
+          <div class="reply-header">
+            <img src="{{ reply.user.profile.profile_img.url }}" alt="{{ reply.user.username }}'s profile image" class="reply-profile-image">
+            <div class="reply-user-info">
+              <strong>{{ reply.user.username }}</strong>
+              <h4>{{ reply.date_replied }}</h4>
+            </div>
+          </div>
+          <div class="reply-body">
+            <p>{{ reply.reply }}</p>
+          </div>
+          {% if request.user == reply.user or request.user.groups.all.0.name == "Moderator" %}
+          <div class="reply-controls">
+            <button class="delete-button" data-reply-id="{{ reply.id }}">Delete Reply</button>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      <form method="post" action="{% url 'reply' post.id %}" class="reply-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <textarea class="textarea1" name="reply" rows="3" cols="100" required></textarea>
+        </div>
+        <button type="submit" class="button reply-button">Reply</button>
+      </form>
     </div>
     {% empty %}
     <p>No posts yet. Be the first to post!</p>
@@ -70,19 +98,18 @@
 
 {% endblock %}
 
+
 {% block scripts %}
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('Document loaded');
     var modal = document.getElementById("deleteModal");
     var span = document.getElementsByClassName("close")[0];
     var confirmDeleteButton = document.getElementById("confirmDeleteButton");
-    var postToDelete = null;
+    var replyToDelete = null;
 
     document.querySelectorAll('.delete-button').forEach(button => {
         button.onclick = function() {
-            console.log('Delete button clicked');
-            postToDelete = this.getAttribute('data-post-id');
+            replyToDelete = this.getAttribute('data-reply-id');
             modal.style.display = "block";
         }
     });
@@ -98,9 +125,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     confirmDeleteButton.onclick = function() {
-        console.log('Confirm delete clicked for post id: ', postToDelete);
-        if (postToDelete) {
-            window.location.href = '/mod-control-panel/delete-post/' + postToDelete + '/';
+        if (replyToDelete) {
+            window.location.href = '/reply/' + replyToDelete + '/delete/';
         }
     }
 
