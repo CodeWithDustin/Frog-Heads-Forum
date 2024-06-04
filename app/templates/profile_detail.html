@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% block title %}
+<title>{{ user.username }}'s Profile - Frog Heads Forum</title>
+{% endblock %} 
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-header">
+    <img
+      src="{{ profile.profile_img.url }}"
+      alt="{{ profile_user.username }}'s profile image"
+      class="profile-image"
+    />
+    <h2>{{ profile_user.username }}</h2>
+  </div>
+  <div class="profile-details">
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <p><strong>Location:</strong> {{ profile.location }}</p>
+  </div>
+</div>
+{% endblock %}

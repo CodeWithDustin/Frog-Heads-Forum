@@ -5,6 +5,7 @@ from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpResponse
+from itertools import chain
 
 ### imports from other files in our project ###
 from app.models import Profile, MessageBoard, Post
@@ -333,3 +334,20 @@ def toggle_perms_view(request, user_id):
         user.groups.add(moderator_group)
     
     return redirect('edit_perms')
+
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        users = User.objects.filter(username__icontains=query)
+        profiles = Profile.objects.filter(username__in=users)
+    else:
+        profiles = []
+
+    return render(request, 'search.html', {"profiles":profiles})
+    
+def profile_detail(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = user.profile
+
+    return render(request, 'profile_detail.html', {'profile_user': user, 'profile':profile})

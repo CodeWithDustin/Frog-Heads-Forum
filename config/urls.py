@@ -33,6 +33,8 @@ urlpatterns = [
     path('forum/<int:board_id>/create-post/', create_post_view, name='post'),
     path("profile/", profile_view, name="profile"),
     path("profile/edit/<int:profile_id>/", edit_profile_view, name="edit_profile"),
+    path("search/", search, name="search"),
+    path("profile/<str:username>/", profile_detail, name='profile_detail'),
     # path("create-profile/", create_profile_view, name="create_profile"),
     
     ### moderator views ###

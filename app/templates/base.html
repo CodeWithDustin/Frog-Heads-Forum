@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frog Head Forums</title>
   <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="wrapper">
@@ -40,10 +41,11 @@
     
 
     <header class="header3">
-      <input type="search" name="search" id="search" placeholder="Search Topic">
-      {% if user.is_authenticated %}
-      <div class="welcome"><p>Welcome, <b>{{user.username}}</b><p></div>
-      {% endif %}
+        <form action="{% url 'search' %}" method "POST">
+          {% csrf_token %}
+        <input type="text" name="q" placeholder="Search for username..."></input>&nbsp;
+        <button type="submit" class="search1"><i class="fa fa-search fa-1x"></i></button>
+        </form>
     </header>
     
 

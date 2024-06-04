@@ -85,6 +85,7 @@
   font-size: 18px;
   text-align: center;
 }
+
 .main {
   box-sizing: border-box;
   padding-top: 50px;
@@ -276,6 +277,20 @@
 
 .threads:hover {
   background-color: #646961;
+}
+
+.search1 {
+  all: unset;
+}
+
+.search1:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0;
+  outline: 0;
+}
+.fa {
+  background: transparent;
+  color: white;
 }
 
 /*------------------------ Login form styles ---------------------*/
