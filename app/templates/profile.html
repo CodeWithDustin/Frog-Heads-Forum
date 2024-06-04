@@ -44,7 +44,6 @@
           <button class="delete-button" data-post-id="{{ post.id }}">Delete Post</button>
         </div>
         {% endif %}
-        {% comment %} <button class='post-link'><a href="{% url 'forum' post.board.id %}#post_{{ post.id }}">Go to Post</a></button> {% endcomment %}
       </div>
       <div class="post-body">
         {% if post|get_name_of_class == "Post" %}
@@ -70,9 +69,5 @@
     <p>This user has no post history.  Bummer!</p>
     {% endfor %}
   </div>
-</div>
-
-
-
 </div>
 {% endblock %}
