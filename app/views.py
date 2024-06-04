@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpResponse, JsonResponse
 from itertools import chain
 from django.urls import reverse
+from itertools import chain
 
 ### imports from other files in our project ###
 from app.models import *
@@ -120,7 +121,10 @@ def profile_view(request):
     
     user = request.user
     profile = Profile.objects.get(username=user)
+    all_posts = Post.objects.filter(user=user)
+    all_replies = Reply.objects.filter(user=user)
 
+    all_posts_and_replies = list(chain(all_posts, all_replies))
 
     # we could do something like ↓ to get the profile directly
     # user_profile = Profile.objects.get(username = request.user)
@@ -128,6 +132,7 @@ def profile_view(request):
     context = {
         'user' : user,
         'profile' : profile,
+        'all_posts' : all_posts_and_replies,
     }
 
     return render(request, 'profile.html', context)
@@ -419,5 +424,9 @@ def search(request):
 def profile_detail(request, username):
     user = get_object_or_404(User, username=username)
     profile = user.profile
+    all_posts = Post.objects.filter(user=user)
+    all_replies = Reply.objects.filter(user=user)
+    all_posts_and_replies = list(chain(all_posts, all_replies))
 
-    return render(request, 'profile_detail.html', {'profile_user': user, 'profile':profile})
+
+    return render(request, 'profile_detail.html', {'profile_user': user, 'profile':profile, 'all_posts':all_posts_and_replies})

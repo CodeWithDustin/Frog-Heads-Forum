@@ -7,7 +7,7 @@
 
   <div class="posts-container">
     {% for post in posts %}
-    <div class="post">
+    <div class="post" id="post_{{ post.id }}">
       <div class="post-header">
         <img src="{{ post.user.profile.profile_img.url }}" alt="{{ post.user.username }}'s profile image" class="post-profile-image">
         <div class="post-user-info">
@@ -31,7 +31,7 @@
       </div>
       <div class="replies-container">
         {% for reply in post.replies.all %}
-        <div class="reply">
+        <div class="reply" id="reply_{{ reply.id }}">
           <div class="reply-header">
             <img src="{{ reply.user.profile.profile_img.url }}" alt="{{ reply.user.username }}'s profile image" class="reply-profile-image">
             <div class="reply-user-info">
