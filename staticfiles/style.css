@@ -1,0 +1,1177 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  font-family: "Poppins", sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.wrapper > * {
+  padding: 10px;
+  height: 1200px;
+  flex: 1 100%;
+}
+
+.wrapper h1 {
+  font-size: 20px;
+}
+
+.header1 {
+  padding-left: 100px;
+  padding-right: 150px;
+  background: #979696;
+  height: 25px;
+  text-align: left;
+  line-height: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.header2 {
+  padding-left: 100px;
+  padding-right: 150px;
+  background: white;
+  height: 100px;
+  text-align: left;
+  border-top: 10px solid #d78f45;
+}
+.header3 {
+  padding-left: 100px;
+  padding-right: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #979696;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome {
+  word-spacing: 5px;
+}
+
+.aside1 {
+  box-sizing: border-box;
+  padding-top: 50px;
+  padding-left: 4%;
+  background: white;
+  flex: 2;
+  font-size: 18px;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+.within1 {
+  text-align: right;
+  line-height: 3.2;
+}
+
+.aside2 {
+  box-sizing: border-box;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-top: 50px;
+  background: white;
+  flex: 2;
+  font-size: 18px;
+  text-align: center;
+}
+
+.main {
+  box-sizing: border-box;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  flex: 2 40%;
+  text-align: left;
+  background: #a9a8a8;
+  overflow-y: scroll;
+  font-size: 18px;
+  text-align: left;
+}
+
+.home_main {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.home_main img {
+  border-radius: 5%;
+  width: 100%;
+  height: 50%;
+}
+.home {
+  text-transform: uppercase;
+}
+.home h2 {
+  color: #015767;
+}
+.home a {
+  color: #c36531;
+}
+.home_welcome {
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-top: 30px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: #5ab826;
+  border-radius: 10px;
+}
+
+.home_welcome p {
+  text-align: left;
+}
+
+.header1,
+.header3,
+.aside1,
+.aside2 {
+  text-transform: uppercase;
+}
+
+.footer {
+  background: #5ab826;
+  height: 200px;
+}
+
+.aside1,
+.aside2,
+.main {
+  height: 100vh;
+}
+
+.ad1 {
+  background: #5ab826;
+  line-height: 250px;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.ad1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ad2 {
+  background: #5ab826;
+  line-height: 250px;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.ad2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ad3 {
+  background: #5ab826;
+  line-height: 450px;
+  width: 250px;
+  height: 450px;
+  margin-bottom: 50px;
+}
+
+.nav1-left,
+.nav1-right {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.nav1-right li:last-child {
+  text-align: center;
+  width: 150px;
+  background: linear-gradient(45deg, #2ca03f, #20630ba8);
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.nav1-right li:last-child a:hover {
+  color: #04281e;
+}
+
+.nav1-left a,
+.nav1-right a {
+  color: white;
+  font-weight: bold;
+}
+
+.nav1-left a:hover,
+.nav1-right a:hover {
+  color: #5ab826;
+}
+
+.nav2 img {
+  width: 330px;
+  height: auto;
+}
+
+.main a {
+  color: black;
+  font-weight: bold;
+}
+
+.header3 p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #646961;
+}
+
+.header3 b {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.header3 {
+  background-color: #5ab826;
+  border-bottom: 10px solid #80808077;
+}
+
+.aside1 {
+  border-right: 10px solid #80808077;
+}
+.aside2 {
+  border-left: 10px solid #80808077;
+}
+
+.threads {
+  background-color: #5ab826;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.threads a {
+  color: #454942;
+}
+
+.threads a:hover {
+  color: white;
+}
+
+.threads:hover {
+  background-color: #646961;
+}
+
+.search1 {
+  all: unset;
+}
+
+.search1:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0;
+  outline: 0;
+}
+.fa {
+  background: transparent;
+  color: white;
+}
+
+/*------------------------ Login form styles ---------------------*/
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #5ab826;
+}
+
+.login-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-form .form-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  color: black;
+}
+
+/*--------------------- Registration form styles --------------------------*/
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #5ab826;
+}
+
+.register-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.register-form .form-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+  color: black;
+}
+
+/*------------- Forum Stylings -----------------*/
+
+.forum-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forum-container h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+.forum-container p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.posts-container {
+  margin-top: 20px;
+}
+
+.post {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #070707;
+  /* background-color: #fff; */
+  background-color: #999999;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post p {
+  color: #333;
+}
+
+.post h4 {
+  color: rgb(184, 173, 173);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #555;
+  border-radius: 10px;
+}
+
+.post-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.post-user-info {
+  flex-grow: 1;
+}
+
+.post-user-info strong {
+  display: block;
+  font-size: 1.2em;
+  color: black;
+}
+
+.post-user-info em {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.post-controls {
+  text-align: right;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #d9534f;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.delete-button a {
+  text-decoration: none;
+  color: #d9534f;
+}
+
+.delete-button a:hover {
+  text-decoration: underline;
+}
+
+.post-body {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.post-image {
+  width: 300px;
+  height: auto;
+  margin-top: 15px;
+}
+
+.new-post {
+  box-sizing: border-box;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #555;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.new-post h3 {
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.new-post .form-group {
+  margin-bottom: 20px;
+}
+
+.textarea1 {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  resize: none;
+}
+
+.post-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #5ab826;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.post-button:hover {
+  background-color: #4a9b22;
+  color: #fff;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.confirm-button {
+  background-color: #d9534f;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #5ab826;
+  color: white;
+}
+
+.confirm-button:hover,
+.cancel-button:hover {
+  opacity: 0.8;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*------------ Profile Page Styling ---------------*/
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-header h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+.profile-details p {
+  font-size: 1.2em;
+  color: #555;
+  margin: 10px 0;
+}
+
+.profile-details strong {
+  color: #333;
+}
+
+.edit-profile-form-container {
+  margin-top: 20px;
+}
+
+.edit-profile-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-profile-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-profile-form .form-error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.edit-profile-form input[type="text"],
+.edit-profile-form input[type="file"],
+.edit-profile-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  resize: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-button a {
+  color: white;
+  text-decoration: none;
+}
+
+.edit-profile-button:hover {
+  background-color: #45a049;
+}
+
+/*---------- MOD PANEL STYLES-------------*/
+.moderator-panel {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.moderator-panel h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-board-form {
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #4a9e22;
+}
+
+.mod-panel-board {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mod-panel-board h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.board-actions {
+  margin-top: 10px;
+}
+
+.board-actions .button {
+  margin-right: 10px;
+}
+
+.delete-button {
+  margin-right: 10px;
+  background-color: #f44336;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.delete-button:hover {
+  background-color: #ff6666;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-actions .button {
+  margin-right: 10px;
+}
+
+#confirmDeleteButton,
+#cancelButton {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#confirmDeleteButton:hover,
+#cancelButton:hover {
+  background-color: #ff6666;
+}
+
+/*---------------- Edit Perms Style -----------------------*/
+
+.permissions-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.permissions-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Search form styling */
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+.search-form .button {
+  padding: 8px 16px;
+  background-color: #5ab826;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-form .button:hover {
+  background-color: #4a9e22;
+}
+
+/* User permissions container styling */
+.user-permissions-container {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-permissions-container h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.user-permissions-container p {
+  margin: 5px 0;
+}
+
+.user-permissions-container .button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-permissions-container .button:hover {
+  background-color: #d32f2f;
+}
+
+.permissions-container .button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.permissions-container .button:hover {
+  background-color: #4a9e22;
+}
+
+/*--------------- Edit Board Styles -------------------------*/
+.edit-board {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-board h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.edit-board-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-board-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.edit-board-form .form-group input,
+.edit-board-form .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.edit-board-form .form-group .form-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+/* Button styling */
+.edit-board-form .button {
+  background-color: #5ab826;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-board-form .button:hover {
+  background-color: #4a9e22;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #bbb;
+}
+
+/* Common button styles */
+.button, .edit-button, .delete-button, .reply-button, .post-button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+/* Edit button styles */
+.edit-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+/* Delete button styles */
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #ff6666;
+}
+
+/* Reply button styles */
+.reply-button {
+  background-color: #008CBA; /* Blue */
+  color: white;
+}
+
+.reply-button:hover {
+  background-color: #007bb5;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.confirm-button,
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.confirm-button:hover,
+.cancel-button:hover {
+  background-color: #ff6666;
+}
+
+.reply {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.reply-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.reply-profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.reply-user-info {
+  font-weight: bold;
+}
+
+.reply-body {
+  margin-bottom: 10px;
+}
+
+.reply-controls {
+  margin-top: 10px;
+}
+
+
